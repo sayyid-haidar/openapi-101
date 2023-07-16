@@ -1,0 +1,31 @@
+_id: spc_46216842edc04616814a04f32fb0d589
+type: ApiSpec
+parentId: wrk_c01d0384074f42a198672a9659c7ed2d
+modified: 1689528052468
+created: 1689525900098
+fileName: Belajar OpenAPI
+contents: |-
+  {
+    "openapi": "3.1.0",
+    "info": {
+      "title": "OpenAPI 101",
+      "version": "0.0.1",
+      "description": ""
+    },
+    "jsonSchemaDialect": "",
+    "servers": [
+      {
+        "url": "https://api.dev.local.id",
+        "description": "Development Server"
+      },
+      {
+        "url": "https://dev.local.id",
+        "description": "Prod Server"
+      }
+    ],
+    "phats": {},
+    "components": {},
+    "security": [],
+    "tags": []
+  }
+contentType: yaml
