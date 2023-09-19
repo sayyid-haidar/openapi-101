@@ -1,31 +1,445 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1689528052468
+modified: 1695115988230
 created: 1689525900098
 fileName: Belajar OpenAPI
-contents: |-
-  {
-    "openapi": "3.1.0",
-    "info": {
-      "title": "OpenAPI 101",
-      "version": "0.0.1",
-      "description": ""
-    },
-    "jsonSchemaDialect": "",
-    "servers": [
-      {
-        "url": "https://api.dev.local.id",
-        "description": "Development Server"
-      },
-      {
-        "url": "https://dev.local.id",
-        "description": "Prod Server"
-      }
-    ],
-    "phats": {},
-    "components": {},
-    "security": [],
-    "tags": []
-  }
+contents: |
+  openapi: 3.1.0
+  info:
+    title: NF Juara API
+    description: OpenAPI specification for NF Juara API services
+    version: 0.0.1
+    contact:
+      name: NfJuara Tim Dev
+
+  servers:
+    - url: "https://api.dev.nfjuara.id"
+      description: Development
+    - url: "https://api.nfjuara.id"
+      description: Production
+
+  components:
+    parameters:
+      pageParam:
+        in: query
+        name: page
+        required: false
+        schema:
+          type: integer
+          minimal: 1
+          default: 1
+        description: The number of page to return
+      perPageParam:
+        in: query
+        name: per_page
+        required: false
+        schema:
+          type: integer
+          minimal: 1
+          default: 10
+        description: The number of item to return
+      idParam:
+        in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      paymentType:
+        in: query
+        name: type
+        required: false
+        schema:
+          $ref: "#/components/schemas/PaymentType"
+    securitySchemes:
+      bearerAuth:
+        type: http
+        scheme: bearer
+        bearerFormat: JWT
+    requestBodies:
+      PaymentMethod:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                bank_name:
+                  type: string
+                  required: true
+                account_number:
+                  type: string
+                  required: true
+                account_name:
+                  type: string
+                  required: true
+                description:
+                  type: string
+                  required: true
+                terms:
+                  type: string
+                  required: false
+                notes:
+                  type: string
+                  required: false
+                type:
+                  $ref: "#/components/schemas/PaymentType"
+    responses:
+      UnauthorizedError:
+        description: Access token is missing or invalid
+    schemas:
+      PaymentType:
+        type: string
+        enum:
+          [
+            LINKAJA,
+            NFJUARA,
+            MARKETPLACE,
+            ORGANIZATION,
+            OY_EWALLET,
+            OY_PAYMENT_ROUTING,
+          ]
+      Transaction:
+        type: object
+        properties:
+          id:
+            type: integer
+          code:
+            type: string
+          status:
+            type: string
+          product_id:
+            type: integer
+          type:
+            type: string
+          title:
+            type: string
+          picture:
+            type: string
+          description:
+            type: string
+          price:
+            type: integer
+          payment_method_id:
+            type: integer
+          payment_bank_name:
+            type: string
+          payment_bank_logo:
+            type: string
+          payment_type:
+            type: string
+      PaymentMethod:
+        type: object
+        properties:
+          id:
+            type: integer
+            required: true
+          bank_name:
+            type: string
+            required: true
+          bank_logo:
+            type: string
+            required: false
+          account_number:
+            type: string
+            required: true
+          account_name:
+            type: string
+            required: true
+          description:
+            type: string
+            required: true
+          status:
+            type: string
+            required: true
+            enum: [PUBLISH, UNPUBLISH]
+          type:
+            type: string
+            required: true
+            $ref: "#/components/schemas/PaymentType"
+          fee_percentage:
+            type: integer
+            required: true
+          is_phonenumber_required:
+            type: boolean
+            required: true
+          terms:
+            type: string
+            required: false
+          notes:
+            type: string
+            required: false
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - name: User Transaction
+      description: Everything about transaction on user
+    - name: Callback
+      description: Everything about 3rd party callback
+    - name: Payment Method Config
+      description: Everything about payment method on admin
+
+  paths:
+    #  Admin Payment Method
+    /sales/payment_methods:
+      get:
+        operationId: getAllPaymentMethods
+        summary: Gets all payment methods
+        tags:
+          - Payment Method Config
+        parameters:
+          - $ref: "#/components/parameters/pageParam"
+          - $ref: "#/components/parameters/perPageParam"
+          - $ref: "#/components/parameters/paymentType"
+        description: Returns all payment methods
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/PaymentMethod"
+    /sales/payment_method:
+      post:
+        operationId: addNewPaymentMethod
+        summary: Add a new payment method
+        tags:
+          - Payment Method Config
+        description: Create a new payment method
+        requestBody:
+          $ref: "#/components/requestBodies/PaymentMethod"
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "201":
+            description: Created
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/PaymentMethod"
+    /sales/payment_method/{id}:
+      get:
+        operationId: getDetailPaymentMethod
+        summary: Get detail payment method
+        tags:
+          - Payment Method Config
+        parameters:
+          - $ref: "#/components/parameters/idParam"
+        description: Return detail payment method
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/PaymentMethod"
+      put:
+        operationId: updatePaymentMethod
+        summary: Update a new payment method
+        tags:
+          - Payment Method Config
+        parameters:
+          - $ref: "#/components/parameters/idParam"
+        description: Update a payment method
+        requestBody:
+          $ref: "#/components/requestBodies/PaymentMethod"
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/PaymentMethod"
+    #  Callback Transaction
+    /sales/payment/oy-ewallet/callback:
+      post:
+        operationId: callbackOyEwallet
+        summary: Callback transaction
+        tags:
+          - Callback
+        description: Callback transaction form OY Indonesia
+        security: []
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                    example: true
+                  trx_id:
+                    type: string
+                    example: 789467agf238893894rfcw7978iu7g7e
+                  customer_id:
+                    type: string
+                    example: my_user_id
+                  ewallet_code:
+                    type: string
+                    example: shopeepay_ewallet
+                  mobile_number:
+                    type: string
+                    example: "6282114845847"
+                  success_redirect_url:
+                    type: string
+                    example: https://myweb.com/usertx/123456
+                  settlement_time:
+                    type: string
+                    example: 01/02/2020T15:00:00.000+0000
+                  status:
+                    type: string
+                    example: WAITING
+    /sales/payment/oy-payment-routing/callback:
+      post:
+        operationId: callbackOyPaymentRouting
+        summary: Callback transaction
+        tags:
+          - Callback
+        description: Callback transaction form OY Indonesia
+        security: []
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  trx_id:
+                    type: string
+                    example: 789467agf238893894rfcw7978iu7g7e
+                  partner_user_id:
+                    type: string
+                    example: USR-20211117-1029
+                  partner_trx_id:
+                    type: string
+                    example: TRX-20211117-1030
+                  receive_amount:
+                    type: integer
+                    example: 14000
+                  payment_status:
+                    type: string
+                    example: WAITING_PAYMENT
+                  trx_expiration_time:
+                    type: string
+                    example: 01/02/2020T15:00:00.000+0000
+                  need_frontend:
+                    type: boolean
+                    example: false
+                  payment_info:
+                    type: object
+                    properties: {}
+                  payment_routing:
+                    type: object
+                    properties: {}
+    #  APP Transaction
+    /sales/v2/app/payment-methods:
+      get:
+        operationId: getListPaymentMethods
+        summary: Gets all payment methods
+        tags:
+          - User Transaction
+        parameters:
+          - $ref: "#/components/parameters/pageParam"
+          - $ref: "#/components/parameters/perPageParam"
+        description: Returns all payment methods
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      type:
+                        type: string
+                      description:
+                        type: string
+                      payment_methods:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/PaymentMethod"
+    /sales/v2/app/transactions:
+      get:
+        operationId: getListTransactions
+        summary: Gets all user transactions
+        tags:
+          - User Transaction
+        parameters:
+          - $ref: "#/components/parameters/pageParam"
+          - $ref: "#/components/parameters/perPageParam"
+        description: Returns all transactions
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "200":
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/Transaction"
+    /sales/v2/app/transaction:
+      post:
+        operationId: createTransaction
+        summary: Add a new transactions
+        tags:
+          - User Transaction
+        description: Create a new transaction
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  product_id:
+                    type: integer
+                    required: true
+                  payment_method_id:
+                    type: integer
+                    required: true
+                  affiliate_code:
+                    type: string
+                    required: false
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "201":
+            description: Created
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Transaction"
+    /sales/v2/app/transaction/{id}:
+      get:
+        operationId: getDetailTransaction
+        summary: Get detail transaction
+        tags:
+          - User Transaction
+        parameters:
+          - $ref: "#/components/parameters/idParam"
+        description: Return detail transaction
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "201":
+            description: Created
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Transaction"
 contentType: yaml
