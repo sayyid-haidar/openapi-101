@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1695115988230
+modified: 1695307023340
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -72,6 +72,7 @@ contents: |
                 account_name:
                   type: string
                   required: true
+                  $ref: "#/components/schemas/OyAccountName"
                 description:
                   type: string
                   required: true
@@ -81,12 +82,36 @@ contents: |
                 notes:
                   type: string
                   required: false
+                expiration_time:
+                  type: integer
+                  required: false
+                is_phonenumber_required:
+                  type: integer
+                  required: false
+                fee_percentage:
+                  type: integer
+                  required: false
+                status: 
+                  $ref: "#/components/schemas/PublishStatus"
                 type:
                   $ref: "#/components/schemas/PaymentType"
     responses:
       UnauthorizedError:
         description: Access token is missing or invalid
     schemas:
+      PublishStatus:
+        type: string
+        enum: [PUBLISH, UNPUBLISH]
+      OyAccountName:
+        type: string
+        enum: 
+          [
+            ovo_ewallet, 
+            shopeepay_ewallet, 
+            linkaja_ewallet, 
+            dana_ewallet, 
+            QRIS
+          ]
       PaymentType:
         type: string
         enum:
@@ -151,7 +176,7 @@ contents: |
           status:
             type: string
             required: true
-            enum: [PUBLISH, UNPUBLISH]
+            $ref: "#/components/schemas/PublishStatus"
           type:
             type: string
             required: true
@@ -168,6 +193,9 @@ contents: |
           notes:
             type: string
             required: false
+          expiration_time: 
+            type: integer
+            required: true
 
   security:
     - bearerAuth: []
