@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1695307023340
+modified: 1695365144753
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -73,6 +73,9 @@ contents: |
                   type: string
                   required: true
                   $ref: "#/components/schemas/OyAccountName"
+                platform:
+                  required: true
+                  $ref: "#/components/schemas/Platform"
                 description:
                   type: string
                   required: true
@@ -102,6 +105,9 @@ contents: |
       PublishStatus:
         type: string
         enum: [PUBLISH, UNPUBLISH]
+      Platform:
+        type: string
+        enum: [ALL, WEB, ANDROID]
       OyAccountName:
         type: string
         enum: 

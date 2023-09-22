@@ -1,0 +1,24 @@
+_id: env_e72318604fcd4ef2a64b3c471cc5fd26
+type: Environment
+parentId: env_b2e2557be8a9b1cd8126abefff228ab7abd8f04d
+modified: 1695365474658
+created: 1695365162265
+name: OpenAPI env api.nfjuara.id
+data:
+  scheme: https
+  base_path: ""
+  host: api.nfjuara.id
+  bearerToken: bearerToken
+  id: 1
+  base_url: api.nfjuara.id
+dataPropertyOrder:
+  "&":
+    - scheme
+    - base_path
+    - host
+    - bearerToken
+    - id
+    - base_url
+color: null
+isPrivate: false
+metaSortKey: 1695365162265

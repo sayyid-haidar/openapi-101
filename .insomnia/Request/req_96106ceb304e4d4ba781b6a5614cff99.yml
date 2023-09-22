@@ -1,0 +1,37 @@
+_id: req_96106ceb304e4d4ba781b6a5614cff99
+type: Request
+parentId: fld_9c2dc55d7fa94f3a90761b241ed98fe0
+modified: 1695365162283
+created: 1695365162283
+url: "{{ _.base_url }}/sales/payment/oy-payment-routing/callback"
+name: Callback transaction
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "trx_id": "789467agf238893894rfcw7978iu7g7e",
+      "partner_user_id": "USR-20211117-1029",
+      "partner_trx_id": "TRX-20211117-1030",
+      "receive_amount": 14000,
+      "payment_status": "WAITING_PAYMENT",
+      "trx_expiration_time": "01/02/2020T15:00:00.000+0000",
+      "need_frontend": true,
+      "payment_info": {},
+      "payment_routing": {}
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    disabled: false
+    value: application/json
+authentication: {}
+metaSortKey: -1695365162283
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

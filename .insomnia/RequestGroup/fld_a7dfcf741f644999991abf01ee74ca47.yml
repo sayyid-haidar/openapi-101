@@ -1,0 +1,10 @@
+_id: fld_a7dfcf741f644999991abf01ee74ca47
+type: RequestGroup
+parentId: wrk_c01d0384074f42a198672a9659c7ed2d
+modified: 1695365162272
+created: 1695365162272
+name: Payment Method Config
+description: Everything about payment method on admin
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1695365162272

@@ -1,0 +1,10 @@
+_id: fld_ad3d7a488e81458a99dc27ee98ebee26
+type: RequestGroup
+parentId: wrk_c01d0384074f42a198672a9659c7ed2d
+modified: 1695365162268
+created: 1695365162268
+name: User Transaction
+description: Everything about transaction on user
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1695365162268
