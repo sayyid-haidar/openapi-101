@@ -1,7 +1,7 @@
 _id: env_5a97f89bcf8844538119d6cbb78787ad
 type: Environment
 parentId: env_b2e2557be8a9b1cd8126abefff228ab7abd8f04d
-modified: 1695365449781
+modified: 1695366262450
 created: 1695365162264
 name: OpenAPI env api.dev.nfjuara.id
 data:
@@ -10,7 +10,7 @@ data:
   host: api.dev.nfjuara.id
   base_url: api.dev.nfjuara.id
   bearerToken: bearerToken
-  id: 1
+  id: 0
 dataPropertyOrder:
   "&":
     - scheme

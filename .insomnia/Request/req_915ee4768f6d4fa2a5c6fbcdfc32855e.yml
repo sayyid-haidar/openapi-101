@@ -1,7 +1,7 @@
 _id: req_915ee4768f6d4fa2a5c6fbcdfc32855e
 type: Request
 parentId: fld_a7dfcf741f644999991abf01ee74ca47
-modified: 1695365373815
+modified: 1695366230570
 created: 1695365162281
 url: "{{ _.host }}/sales/payment_method/{{_.id}}"
 name: Update a new payment method
