@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1695366967588
+modified: 1695367145105
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -104,7 +104,7 @@ contents: |
     schemas:
       PublishStatus:
         type: string
-        enum: [PUBLISHED, UNPABLISHED]
+        enum: [PUBLISHED, UNPUBLISHED]
       Platform:
         type: string
         enum: [ALL, WEB, ANDROID]
