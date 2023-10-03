@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1695696886485
+modified: 1696236783693
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -66,6 +66,9 @@ contents: |
                 bank_name:
                   type: string
                   required: true
+                bank_logo:
+                  type: string
+                  required: false
                 account_number:
                   type: string
                   required: true
@@ -114,14 +117,6 @@ contents: |
         enum: [ALL, WEB, ANDROID]
       OyAccountName:
         type: string
-        enum: 
-          [
-            ovo_ewallet, 
-            shopeepay_ewallet, 
-            linkaja_ewallet, 
-            dana_ewallet, 
-            QRIS
-          ]
       PaymentType:
         type: string
         enum:
@@ -250,6 +245,28 @@ contents: |
                   password:
                     type: string
                     required: true
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+    /account/oauth-authorize:
+      post:
+        operationId: oAuthAuthorize
+        summary: OAuth 2.0
+        description: OAuth 2.0
+        security: []
+        tags:
+          - Authentication
+        parameters:
+          - in: query
+            name: client_id
+            required: true
+            schema:
+              type: string
+          - in: query
+            name: client_secret
+            required: true
+            schema:
+              type: string
         responses:
           "403":
             $ref: "#/components/responses/UnauthorizedError"
