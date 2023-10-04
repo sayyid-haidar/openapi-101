@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1696236783693
+modified: 1696408141301
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -157,6 +157,13 @@ contents: |
             type: string
           payment_type:
             type: string
+          payment_notes:
+            type: string
+          payment_terms:
+            type: string
+          payment_app_link:
+            type: string
+          
       PaymentMethod:
         type: object
         properties:
@@ -384,9 +391,9 @@ contents: |
                   settlement_time:
                     type: string
                     example: 01/02/2020T15:00:00.000+0000
-                  status:
+                  settlement_status:
                     type: string
-                    example: WAITING
+                    example: COMPLETE
     /sales/payment/oy-payment-routing/callback:
       post:
         operationId: callbackOyPaymentRouting
@@ -476,6 +483,19 @@ contents: |
             $ref: "#/components/responses/UnauthorizedError"
           "200":
             description: OK
+            headers: 
+              Pagination-Page:
+                schema:
+                  type: string
+              Pagination-Limit:
+                schema:
+                  type: string
+              Pagination-Total-Elements:
+                schema:
+                  type: string
+              Pagination-Total-Pages:
+                schema:
+                  type: string
             content:
               application/json:
                 schema:
@@ -517,6 +537,24 @@ contents: |
       get:
         operationId: getDetailTransaction
         summary: Get detail transaction
+        tags:
+          - User Transaction
+        parameters:
+          - $ref: "#/components/parameters/idParam"
+        description: Return detail transaction
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "201":
+            description: Created
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Transaction"
+    /sales/v2/app/transaction/{id}/cancel:
+      patch:
+        operationId: cancelTransaction
+        summary: Cancel transaction
         tags:
           - User Transaction
         parameters:
