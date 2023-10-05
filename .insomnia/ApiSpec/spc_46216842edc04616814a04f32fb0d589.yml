@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1696408260804
+modified: 1696473915798
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -161,7 +161,7 @@ contents: |
             type: string
           payment_terms:
             type: string
-          payment_app_link:
+          partner_app_link:
             type: string
           
       PaymentMethod:
@@ -522,7 +522,7 @@ contents: |
                     type: integer
                     required: true
                   phone_number:
-                    type: boolean
+                    type: string
                     required: optional
                   affiliate_code:
                     type: string
