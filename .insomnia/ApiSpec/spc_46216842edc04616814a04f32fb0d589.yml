@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1696473915798
+modified: 1696489801758
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -363,7 +363,6 @@ contents: |
         tags:
           - Callback
         description: Callback transaction form OY Indonesia
-        security: []
         requestBody:
           content:
             application/json:
@@ -401,7 +400,6 @@ contents: |
         tags:
           - Callback
         description: Callback transaction form OY Indonesia
-        security: []
         requestBody:
           content:
             application/json:
