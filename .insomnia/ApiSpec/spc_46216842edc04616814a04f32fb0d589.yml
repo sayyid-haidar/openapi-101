@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1696489801758
+modified: 1696491444352
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -393,6 +393,9 @@ contents: |
                   settlement_status:
                     type: string
                     example: COMPLETE
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
     /sales/payment/oy-payment-routing/callback:
       post:
         operationId: callbackOyPaymentRouting
@@ -433,6 +436,9 @@ contents: |
                   payment_routing:
                     type: object
                     properties: {}
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
     #  APP Transaction
     /sales/v2/app/payment-methods:
       get:
