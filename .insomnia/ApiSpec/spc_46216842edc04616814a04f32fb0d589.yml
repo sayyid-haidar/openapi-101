@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1696491444352
+modified: 1696561857556
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -269,11 +269,13 @@ contents: |
             required: true
             schema:
               type: string
+            example: OY_ID
           - in: query
             name: client_secret
             required: true
             schema:
               type: string
+            example: uJ5xWU2WrHiCd5fhBPtOs5SfhYUWlFEx
         responses:
           "403":
             $ref: "#/components/responses/UnauthorizedError"
@@ -430,12 +432,6 @@ contents: |
                   need_frontend:
                     type: boolean
                     example: false
-                  payment_info:
-                    type: object
-                    properties: {}
-                  payment_routing:
-                    type: object
-                    properties: {}
         responses:
           "403":
             $ref: "#/components/responses/UnauthorizedError"
@@ -443,7 +439,7 @@ contents: |
     /sales/v2/app/payment-methods:
       get:
         operationId: getListPaymentMethods
-        summary: Gets all payment methods
+        summary: List payment methods
         tags:
           - User Transaction
         parameters:
@@ -475,7 +471,7 @@ contents: |
     /sales/v2/app/transactions:
       get:
         operationId: getListTransactions
-        summary: Gets all user transactions
+        summary: List transactions
         tags:
           - User Transaction
         parameters:
@@ -509,7 +505,7 @@ contents: |
     /sales/v2/app/transaction:
       post:
         operationId: createTransaction
-        summary: Add a new transactions
+        summary: Checkout product
         tags:
           - User Transaction
         description: Create a new transaction
@@ -525,9 +521,6 @@ contents: |
                   payment_method_id:
                     type: integer
                     required: true
-                  phone_number:
-                    type: string
-                    required: optional
                   affiliate_code:
                     type: string
                     required: false
@@ -543,7 +536,7 @@ contents: |
     /sales/v2/app/transaction/{id}:
       get:
         operationId: getDetailTransaction
-        summary: Get detail transaction
+        summary: Detail invoice
         tags:
           - User Transaction
         parameters:
@@ -558,8 +551,35 @@ contents: |
               application/json:
                 schema:
                   $ref: "#/components/schemas/Transaction"
+    /sales/v2/app/transaction/{id}/confirmation:
+      post:
+        operationId: generatePaymentLink
+        summary: Generate payment link
+        tags:
+          - User Transaction
+        parameters:
+          - $ref: "#/components/parameters/idParam"
+        description: Generate payment link on transaction
+        requestBody:
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  phone_number:
+                    type: string
+                    required: optional
+        responses:
+          "403":
+            $ref: "#/components/responses/UnauthorizedError"
+          "201":
+            description: Created
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/Transaction"
     /sales/v2/app/transaction/{id}/cancel:
-      patch:
+      post:
         operationId: cancelTransaction
         summary: Cancel transaction
         tags:
