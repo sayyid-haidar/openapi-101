@@ -1,0 +1,30 @@
+_id: req_12cbf36d55ee4fcc834cbc9895f972c3
+type: Request
+parentId: fld_585c1c1f4639438c9c0adf8c08a733f9
+modified: 1696686190665
+created: 1696686190665
+url: "{{ _.base_url }}/sales/v2/app/transactions"
+name: List transactions
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    disabled: true
+    value: "1"
+  - name: per_page
+    disabled: true
+    value: "10"
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.bearerToken }}"
+  prefix: ""
+metaSortKey: -1696686190665
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

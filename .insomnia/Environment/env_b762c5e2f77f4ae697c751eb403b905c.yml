@@ -1,0 +1,22 @@
+_id: env_b762c5e2f77f4ae697c751eb403b905c
+type: Environment
+parentId: env_b2e2557be8a9b1cd8126abefff228ab7abd8f04d
+modified: 1696693506599
+created: 1696686379677
+name: LOCAL
+data:
+  base_url: http://localhost:8080
+  bearerToken: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InByaXZhdGVfa2V5In0.eyJhdWQiOiJveV9pbmRvbmVzaWEiLCJpc3MiOiJjb20uYm9uZi5hY2NvdW50IiwiaWF0IjoxNjk2NjkzNDk1LCJleHAiOjE2OTY2OTM3OTV9.h561oCtClNaBkbagzmNTIUy99FMlEkodkKu4KxtII_AlSw0Ex9w_R-iI3N3SCNEeS0nYB8SqZsX468DpVsTkGX9C7mE1oHqZU25SZjOLSVJr0rTcmoiAN3otUTuQZ9J-Go2zQ6Z1RaZtVphLQ76ooXMVKkiSEROwI6uRh-8bkCSCKeB06e68KbU88dYGQnZGre2x8NMyR3g84M5e9pKagb6DmDliqp-sssYGAE9Fs4LWAvtH2A-ATrCAWMbwMxlYE5CN9YwKmB8D2TEkz3uFc98ZfvflHU4mclVILIPUwA3eB0m2QBxAk8oNXmqbDT6DpHdfZ5vxqGXjD1szrzNRBA
+  id: 1
+  sales_service: ""
+  account_service: ""
+dataPropertyOrder:
+  "&":
+    - base_url
+    - bearerToken
+    - id
+    - sales_service
+    - account_service
+color: null
+isPrivate: false
+metaSortKey: 1696686379677

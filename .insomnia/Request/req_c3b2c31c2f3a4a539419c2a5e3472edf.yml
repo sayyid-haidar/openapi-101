@@ -1,0 +1,24 @@
+_id: req_c3b2c31c2f3a4a539419c2a5e3472edf
+type: Request
+parentId: fld_585c1c1f4639438c9c0adf8c08a733f9
+modified: 1696686190665
+created: 1696686190665
+url: "{{ _.base_url }}/sales/v2/app/transaction/{{ _.id }}/cancel"
+name: Cancel transaction
+description: ""
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.bearerToken }}"
+  prefix: ""
+metaSortKey: -1696686190665
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

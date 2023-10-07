@@ -1,0 +1,22 @@
+_id: env_c64be58b643c46b3989878f086260f82
+type: Environment
+parentId: env_b2e2557be8a9b1cd8126abefff228ab7abd8f04d
+modified: 1696690970334
+created: 1696686190658
+name: DEV
+data:
+  base_url: https://api.dev.nfjuara.id
+  bearerToken: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6InByaXZhdGVfa2V5In0.eyJhdWQiOiJveV9pbmRvbmVzaWEiLCJpc3MiOiJjb20uYm9uZi5hY2NvdW50IiwiaWF0IjoxNjk2NjkwOTUyLCJleHAiOjE2OTY2OTEyNTJ9.ZOb0Xmcus-GWCi5hFTcCfVyPOoRuSlJGI_mfqK5a0CIEFmeZeD3IRLYny5Sl-XjaSXxV5Q0JwLzttzl91AfPNzsusjNyfirUxRrX4ARaWYLP4oanYoZgGoaKBVjflvjOwhqWhtYdmpUGvVvxOfBzb01dJbsgKeSEO1w1NouZn4LzCwJeWTjliLIFO8F-VBfe8p5L9jSd524kESnu8d_yVohwuMlF7jIoatzN_pAnO6ptbNPQfzx26T0fFFM1tajCuTdcVYPCWrX4dRVOLZopXCba1WUIuCqTgnFWJ0RfdbVC384FMeWoV51Ork_XCRiZsmOtuIsRzNRs4Em6V_A8NA
+  id: 1
+  sales_service: /sales
+  account_service: /account
+dataPropertyOrder:
+  "&":
+    - base_url
+    - bearerToken
+    - id
+    - sales_service
+    - account_service
+color: null
+isPrivate: false
+metaSortKey: 1696686190658

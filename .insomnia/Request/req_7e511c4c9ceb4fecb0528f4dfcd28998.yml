@@ -1,0 +1,29 @@
+_id: req_7e511c4c9ceb4fecb0528f4dfcd28998
+type: Request
+parentId: fld_d819c00f339f4be2ab9f841923415bc0
+modified: 1696689265294
+created: 1696686190662
+url: "{{ _.base_url }}{{ _.account_service }}/oauth-authorize"
+name: OAuth 2.0
+description: ""
+method: POST
+body: {}
+parameters:
+  - name: client_id
+    disabled: false
+    value: OY_ID
+    id: pair_1612c044dfae4dceabff0693a3e5e0d7
+  - name: client_secret
+    disabled: false
+    value: uJ5xWU2WrHiCd5fhBPtOs5SfhYUWlFEx
+    id: pair_6688c0da8fd843748bc17ec0894382e7
+headers: []
+authentication: {}
+metaSortKey: -1696686190662
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

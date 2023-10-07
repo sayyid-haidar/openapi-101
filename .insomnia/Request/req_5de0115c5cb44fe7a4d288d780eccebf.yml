@@ -1,0 +1,24 @@
+_id: req_5de0115c5cb44fe7a4d288d780eccebf
+type: Request
+parentId: fld_b7950efd1ffb4da38f92d28baacceec4
+modified: 1696686573640
+created: 1696686190664
+url: "{{ _.base_url }}/sales/payment_method/{{ _.id }}"
+name: Get detail payment method
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.bearerToken }}"
+  prefix: ""
+metaSortKey: -1696686190664
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

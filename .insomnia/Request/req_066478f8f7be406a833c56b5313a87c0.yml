@@ -1,0 +1,33 @@
+_id: req_066478f8f7be406a833c56b5313a87c0
+type: Request
+parentId: fld_b7950efd1ffb4da38f92d28baacceec4
+modified: 1696686190663
+created: 1696686190663
+url: "{{ _.base_url }}/sales/payment_methods"
+name: Gets all payment methods
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: page
+    disabled: true
+    value: "1"
+  - name: per_page
+    disabled: true
+    value: "10"
+  - name: type
+    disabled: true
+    value: string
+headers: []
+authentication:
+  type: bearer
+  token: "{{ _.bearerToken }}"
+  prefix: ""
+metaSortKey: -1696686190663
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

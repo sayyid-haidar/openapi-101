@@ -1,0 +1,34 @@
+_id: req_7d331debecaf48348dca4fc9a5aec26b
+type: Request
+parentId: fld_585c1c1f4639438c9c0adf8c08a733f9
+modified: 1696686190665
+created: 1696686190665
+url: "{{ _.base_url }}/sales/v2/app/transaction"
+name: Checkout product
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "product_id": 0,
+      "payment_method_id": 0,
+      "affiliate_code": "string"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    disabled: false
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.bearerToken }}"
+  prefix: ""
+metaSortKey: -1696686190665
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

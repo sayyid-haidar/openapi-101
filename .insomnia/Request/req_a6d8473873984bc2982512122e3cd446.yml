@@ -1,0 +1,39 @@
+_id: req_a6d8473873984bc2982512122e3cd446
+type: Request
+parentId: fld_539b745459b545a4b16c08a1391c46de
+modified: 1696689298559
+created: 1696686190664
+url: "{{ _.base_url }}{{ _.sales_service }}/payment/oy-ewallet/callback"
+name: Callback transaction
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "success": true,
+      "trx_id": "789467agf238893894rfcw7978iu7g7e",
+      "customer_id": "my_user_id",
+      "ewallet_code": "shopeepay_ewallet",
+      "mobile_number": "6282114845847",
+      "success_redirect_url": "https://myweb.com/usertx/123456",
+      "settlement_time": "01/02/2020T15:00:00.000+0000",
+      "settlement_status": "COMPLETE"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    disabled: false
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.bearerToken }}"
+  prefix: ""
+metaSortKey: -1696686190664
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

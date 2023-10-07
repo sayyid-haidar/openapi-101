@@ -1,0 +1,45 @@
+_id: req_b0f9490c7d7247deb3201b04ef96c29f
+type: Request
+parentId: fld_b7950efd1ffb4da38f92d28baacceec4
+modified: 1696686190663
+created: 1696686190663
+url: "{{ _.base_url }}/sales/payment_method"
+name: Add a new payment method
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "bank_name": "string",
+      "bank_logo": "string",
+      "account_number": "string",
+      "account_name": "string",
+      "platform": "string",
+      "description": "string",
+      "terms": "string",
+      "notes": "string",
+      "expiration_time": 0,
+      "is_phonenumber_required": 0,
+      "fee_percentage": 0,
+      "order_number": 0,
+      "status": "string",
+      "type": "string"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    disabled: false
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.bearerToken }}"
+  prefix: ""
+metaSortKey: -1696686190663
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

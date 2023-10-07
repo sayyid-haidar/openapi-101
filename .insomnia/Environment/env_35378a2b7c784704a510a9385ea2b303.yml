@@ -1,0 +1,22 @@
+_id: env_35378a2b7c784704a510a9385ea2b303
+type: Environment
+parentId: env_b2e2557be8a9b1cd8126abefff228ab7abd8f04d
+modified: 1696689221708
+created: 1696686190660
+name: PROD
+data:
+  base_url: https://api.nfjuara.id
+  bearerToken: bearerToken
+  id: 1
+  sales_service: /sales
+  account_service: /account
+dataPropertyOrder:
+  "&":
+    - base_url
+    - bearerToken
+    - id
+    - sales_service
+    - account_service
+color: null
+isPrivate: false
+metaSortKey: 1696686190660

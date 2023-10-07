@@ -1,0 +1,32 @@
+_id: req_33460762095548c0ab8c2a57fc156282
+type: Request
+parentId: fld_585c1c1f4639438c9c0adf8c08a733f9
+modified: 1696686190665
+created: 1696686190665
+url: "{{ _.base_url }}/sales/v2/app/transaction/{{ _.id }}/confirmation"
+name: Generate payment link
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "phone_number": "string"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    disabled: false
+    value: application/json
+authentication:
+  type: bearer
+  token: "{{ _.bearerToken }}"
+  prefix: ""
+metaSortKey: -1696686190665
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,30 @@
+_id: req_857995770fc04efc9b1e1b4c144dd9fd
+type: Request
+parentId: fld_d819c00f339f4be2ab9f841923415bc0
+modified: 1696689184246
+created: 1696686190662
+url: "{{ _.base_url }}{{ _.account_service }}/basic_login"
+name: basic login
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+      "email": "aa@aa.aa",
+      "password": "aa"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    disabled: false
+    value: application/json
+authentication: {}
+metaSortKey: -1696686190662
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
