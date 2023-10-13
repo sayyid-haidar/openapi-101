@@ -1,7 +1,7 @@
 _id: req_a6d8473873984bc2982512122e3cd446
 type: Request
 parentId: fld_539b745459b545a4b16c08a1391c46de
-modified: 1696689298559
+modified: 1696702738694
 created: 1696686190664
 url: "{{ _.base_url }}{{ _.sales_service }}/payment/oy-ewallet/callback"
 name: Callback transaction
@@ -27,7 +27,8 @@ headers:
     value: application/json
 authentication:
   type: bearer
-  token: "{{ _.bearerToken }}"
+  token: "{% response 'body', 'req_7e511c4c9ceb4fecb0528f4dfcd28998',
+    'b64::JC5hY2Nlc3NfdG9rZW4=::46b', 'never', 60 %}"
   prefix: ""
 metaSortKey: -1696686190664
 isPrivate: false

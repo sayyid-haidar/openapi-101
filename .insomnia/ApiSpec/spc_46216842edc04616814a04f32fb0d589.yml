@@ -1,7 +1,7 @@
 _id: spc_46216842edc04616814a04f32fb0d589
 type: ApiSpec
 parentId: wrk_c01d0384074f42a198672a9659c7ed2d
-modified: 1696688414272
+modified: 1697181997409
 created: 1689525900098
 fileName: Belajar OpenAPI
 contents: |
@@ -14,9 +14,9 @@ contents: |
       name: NfJuara Tim Dev
 
   servers:
-    - url: "http://api.dev.nfjuara.id"
+    - url: "https://api.dev.nfjuara.id"
       description: DEV
-    - url: "http://api.nfjuara.id"
+    - url: "https://api.nfjuara.id"
       description: PROD
     - url: "http://localhost:8080"
       description: LOCAL
@@ -249,7 +249,7 @@ contents: |
 
   paths:
     #  Login
-    /basic_login:
+    /account/basic_login:
       post:
         operationId: basicLogin
         summary: basic login
